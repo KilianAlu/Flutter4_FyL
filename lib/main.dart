@@ -103,6 +103,9 @@ class FirstRouteState extends State<FirstRoute> {
                             if (value == null || value.isEmpty) {
                               return "Introduce una contraseña";
                             }
+                            else if(!rex.hasMatch(value)){
+
+                            }
                           },))),
               const Text("Forgot Password",
                   style: TextStyle(color: Colors.blue)),
