@@ -55,61 +55,70 @@ class FirstRouteState extends State<FirstRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: const Text('First Route'),
-      ),
-      body: Center(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
-              margin: const EdgeInsets.fromLTRB(100, 5, 100, 5),
-              child: Image.network(
-                "https://i0.wp.com/clay-atlas.com/wp-content/uploads/2021/02/Flutter_LOGO.png?resize=930%2C375&ssl=1",
-                fit: BoxFit.contain,
-                width: 120,
-              )),
-          Container(
-              margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-              child: SizedBox(
-                  width: 300,
-                  child: TextField(
-                      obscureText: false,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Email',
-                      ),
-                      onSubmitted: (String value) {
-                        setState(() {
-                          email = value;
-                        });
-                      }))),
-          Container(
-              margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-              child: SizedBox(
-                  width: 300,
-                  child: TextField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Contraseña',
-                      ),
-                      onSubmitted: (String value) {
-                        setState(() {
-                          contrasena = value;
-                        });
-                      }))),
-          const Text("Forgot Password", style: TextStyle(color: Colors.blue)),
-          ElevatedButton(
-              child: const Text("Login"),
-              onPressed: () {
-                if (email == "Usuario" && contrasena == "12345") {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => SecondRoute())));
-                }
-              })
-        ]),
-      ),
-    );
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar(
+          title: const Text('First Route'),
+        ),
+        body: Center(
+          child: Form(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Container(
+                  margin: const EdgeInsets.fromLTRB(100, 5, 100, 5),
+                  child: Image.network(
+                    "https://i0.wp.com/clay-atlas.com/wp-content/uploads/2021/02/Flutter_LOGO.png?resize=930%2C375&ssl=1",
+                    fit: BoxFit.contain,
+                    width: 120,
+                  )),
+              Container(
+                  margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  child: SizedBox(
+                      width: 300,
+                      child: TextFormField(
+                          obscureText: false,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Email',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Introduce un email";
+                            }
+                            else{
+                              email = value;
+                            }
+                          },))),
+              Container(
+                  margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                  child: SizedBox(
+                      width: 300,
+                      child: TextFormField(
+                          obscureText: true,
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Contraseña',
+                          ),
+                          validator: (value){
+                            RegExp rex = RegExp(r'^(?=,*[0-9])(?=,*?[a-z])');
+                            if (value == null || value.isEmpty) {
+                              return "Introduce una contraseña";
+                            }
+                          },))),
+              const Text("Forgot Password",
+                  style: TextStyle(color: Colors.blue)),
+              ElevatedButton(
+                  child: const Text("Login"),
+                  onPressed: () {
+                    if (email == "Usuario" && contrasena == "12345") {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => SecondRoute())));
+                    }
+                  })
+            ]),
+          ),
+        ));
   }
 }
 
@@ -161,17 +170,19 @@ class _SecondRouteState extends State<SecondRoute> {
             children: [
               FloatingActionButton(
                   heroTag: "suma",
-                  onPressed: suma, child: const Icon(Icons.add)),
+                  onPressed: suma,
+                  child: const Icon(Icons.add)),
               FloatingActionButton(
                   heroTag: "resta",
-                  onPressed: resta, child: const Icon(Icons.remove)),
+                  onPressed: resta,
+                  child: const Icon(Icons.remove)),
             ],
           ),
           ElevatedButton(
               child: const Text('Volver'),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>  const MyApp()));
+                    MaterialPageRoute(builder: (context) => const MyApp()));
               }),
         ],
       ))),
