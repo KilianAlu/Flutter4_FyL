@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo2',
+      title: 'Flutter4',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -52,6 +52,7 @@ class FirstRouteState extends State<FirstRoute> {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
+  final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +62,7 @@ class FirstRouteState extends State<FirstRoute> {
         ),
         body: Center(
           child: Form(
+            key: key,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Container(
@@ -75,44 +77,52 @@ class FirstRouteState extends State<FirstRoute> {
                   child: SizedBox(
                       width: 300,
                       child: TextFormField(
-                          obscureText: false,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Email',
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Introduce un email";
-                            }
-                            else{
-                              email = value;
-                            }
-                          },))),
+                        obscureText: false,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Email',
+                        ),
+                        validator: (value) {
+                          print("a");
+                          if (value == null || value.isEmpty) {
+                            return "Introduce un email";
+                          } 
+                          else if(value != "user"){
+                            return "Usuario incorrecto";
+                          }
+                          return null;
+                        },
+                      ))),
               Container(
                   margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                   child: SizedBox(
                       width: 300,
                       child: TextFormField(
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Contraseña',
-                          ),
-                          validator: (value){
-                            RegExp rex = RegExp(r'^(?=,*[0-9])(?=,*?[a-z])');
-                            if (value == null || value.isEmpty) {
-                              return "Introduce una contraseña";
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Contraseña',
+                        ),
+                        validator: (value) {
+                          RegExp rex = RegExp(r'^(?=.*?[0-9])(?=.*[a-z])');
+                          if (value == null || value.isEmpty) {
+                            return "Introduce una contraseña";
+                          } else if (!rex.hasMatch(value)) {
+                            print(value);
+                            return "La contraseña debe tener numeors y letras";
+                          }
+                            else if(value != "pass12345"){
+                              return "Contraseña equivocada";
                             }
-                            else if(!rex.hasMatch(value)){
-
-                            }
-                          },))),
+                          return null;
+                        },
+                      ))),
               const Text("Forgot Password",
                   style: TextStyle(color: Colors.blue)),
               ElevatedButton(
                   child: const Text("Login"),
                   onPressed: () {
-                    if (email == "Usuario" && contrasena == "12345") {
+                    if (key.currentState!.validate()) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
