@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter4/Pantalla3.dart';
+import 'package:flutter4/model/Ciudad.dart';
 import 'package:flutter4/model/ciudad.dart';
 
 import 'Pantalla2.dart';
-
-String email = "1";
-String contrasena = "3";
-String value = "0";
-int contador = 0;
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +29,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      initialRoute: "PrimeraPagina",
+      routes: {
+        "PrimeraPagina":(context) => const FirstRoute(title: "Primera pagina"),
+        "SegundaPagina":(context) => SecondRoute(),
+      },
       home: const FirstRoute(title: 'Login Page'),
     );
   }
@@ -87,7 +88,6 @@ class FirstRouteState extends State<FirstRoute> {
                           labelText: 'Email',
                         ),
                         validator: (value) {
-                          print("a");
                           if (value == null || value.isEmpty) {
                             return "Introduce un email";
                           } else if (value != "user") {
@@ -111,8 +111,7 @@ class FirstRouteState extends State<FirstRoute> {
                           if (value == null || value.isEmpty) {
                             return "Introduce una contraseña";
                           } else if (!rex.hasMatch(value)) {
-                            print(value);
-                            return "La contraseña debe tener numeors y letras";
+                            return "La contraseña debe tener numeros y letras";
                           } else if (value != "pass12345") {
                             return "Contraseña equivocada";
                           }
@@ -125,10 +124,7 @@ class FirstRouteState extends State<FirstRoute> {
                   child: const Text("Login"),
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => SecondRoute())));
+                      Navigator.pushNamed(context, "SegundaPagina");
                     }
                   })
             ]),
