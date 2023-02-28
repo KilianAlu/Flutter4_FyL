@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter4/Pantalla3.dart';
-import 'package:flutter4/model/Ciudad.dart';
 import 'package:flutter4/model/ciudad.dart';
-
+import 'package:flutter4/routing/appRoutes.dart';
+import 'package:flutter4/routing/routes.dart';
 import 'Pantalla2.dart';
 
 void main() {
@@ -29,11 +29,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "PrimeraPagina",
-      routes: {
-        "PrimeraPagina":(context) => const FirstRoute(title: "Primera pagina"),
-        "SegundaPagina":(context) => SecondRoute(),
-      },
+      initialRoute: Routes.splash,
+      routes: appRoutes,
       home: const FirstRoute(title: 'Login Page'),
     );
   }
@@ -124,7 +121,7 @@ class FirstRouteState extends State<FirstRoute> {
                   child: const Text("Login"),
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Navigator.pushNamed(context, "SegundaPagina");
+                      Navigator.pushReplacementNamed(context, Routes.ciudades);
                     }
                   })
             ]),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter4/model/Global.dart';
 import 'package:flutter4/model/ciudad.dart';
+import 'package:flutter4/routing/routes.dart';
 
 class pantalla3 extends StatefulWidget {
-  const pantalla3({super.key, required this.title, required this.ciudad});
-
+  const pantalla3({super.key,required this.title, required this.ciudad});
   final String title;
   final Ciudad ciudad;
 
@@ -11,12 +12,14 @@ class pantalla3 extends StatefulWidget {
   State<StatefulWidget> createState() => pantalla3State();
 }
 
+
 class pantalla3State extends State<pantalla3> {
+   String title = "Ciudad";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
           child: Column(
@@ -39,9 +42,32 @@ class pantalla3State extends State<pantalla3> {
                     ),
                   )
                 ],
-              ))
+              )),
+            TextButton(
+              onPressed: (() => showDialog<String>(context: context, 
+              builder: (BuildContext context) => AlertDialog(
+                title: const Text("Borrar Ciudad?"),
+                content: const Text("Quieres borrar esta ciudad?"),
+                actions : <Widget>[
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, "No"),
+                     child: const Text("No")
+                  ),
+                  TextButton(
+                    onPressed: (){ 
+                      eliminarCiudad(widget.ciudad);
+                      Navigator.pop(context, "Yes");
+                      Navigator.pushReplacementNamed(context, Routes.ciudades);
+                      },
+                     child: const Text("Yes")
+                  ),
+                ]
+              ),
+              )),
+              child: const Text("Borrar Ciudad"),)
         ],
-      )),
+      )
+      ),
     );
   }
 }
