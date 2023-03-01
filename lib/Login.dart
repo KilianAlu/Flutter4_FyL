@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter4/Pantalla3.dart';
+import 'package:flutter4/CiudadDetalles.dart';
 import 'package:flutter4/model/ciudad.dart';
 import 'package:flutter4/routing/appRoutes.dart';
 import 'package:flutter4/routing/routes.dart';
-import 'Pantalla2.dart';
+import 'CiudadesLista.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,6 +55,7 @@ class FirstRouteState extends State<FirstRoute> {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
   final key = GlobalKey<FormState>();
+  late String nombre;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,6 +91,7 @@ class FirstRouteState extends State<FirstRoute> {
                           } else if (value != "user") {
                             return "Usuario incorrecto";
                           }
+                          nombre = value;
                           return null;
                         },
                       ))),
@@ -121,7 +123,7 @@ class FirstRouteState extends State<FirstRoute> {
                   child: const Text("Login"),
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Navigator.pushReplacementNamed(context, Routes.ciudades);
+                      Navigator.pushReplacementNamed(context, Routes.ciudades, arguments: nombre);
                     }
                   })
             ]),

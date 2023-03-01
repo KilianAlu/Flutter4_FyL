@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter4/routing/routes.dart';
 
-import 'Pantalla3.dart';
+import 'CiudadDetalles.dart';
 import 'package:flutter4/model/ciudad.dart';
 
 import 'model/Global.dart';
 
 class SecondRoute extends StatefulWidget {
+  const SecondRoute({super.key,required this.usuario});
+  final String usuario;
   @override
   State<SecondRoute> createState() => _SecondRouteState();
 }
@@ -17,7 +19,7 @@ class _SecondRouteState extends State<SecondRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Segunda pantalla'),
+        title: Text("Hola ${widget.usuario}"),
       ),
       body: Center(
           child: InkWell(
