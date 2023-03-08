@@ -3,10 +3,11 @@ import 'package:flutter4/CiudadDetalles.dart';
 import 'package:flutter4/model/ciudad.dart';
 import 'package:flutter4/routing/appRoutes.dart';
 import 'package:flutter4/routing/routes.dart';
+import 'package:flutter4/test/testPage.dart';
 import 'CiudadesLista.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( testPage());
 }
 
 class MyApp extends StatelessWidget {

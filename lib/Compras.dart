@@ -13,7 +13,7 @@ class Compras extends StatelessWidget{
       body: Center(
         child: Row(
           children: [
-            Text("aaaa")
+            Text("Hola")
           ],
         ),
       )
