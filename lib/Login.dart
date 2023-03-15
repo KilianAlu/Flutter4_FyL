@@ -1,23 +1,66 @@
+import 'dart:html';
+
+import 'package:flutter_gen/gen_l10n/app_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter4/CiudadDetalles.dart';
 import 'package:flutter4/model/ciudad.dart';
 import 'package:flutter4/routing/appRoutes.dart';
 import 'package:flutter4/routing/routes.dart';
 import 'package:flutter4/test/testPage.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/date_symbol_data_http_request.dart';
+import 'package:intl/intl.dart';
 import 'CiudadesLista.dart';
+import 'dart:ui' as ui;
 
-void main() {
-  runApp( testPage());
+final defaultLocale = ui.window.locale.languageCode;
+final defaultLanguage = ui.window.locale.countryCode;
+
+String get defaultDeviceLanguage {
+ String defLocale = defaultLocale;
+  if(defaultLanguage != null){
+    defLocale += '_$defaultLanguage';
+  }
+  return defLocale;
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() {
+  Intl.defaultLocale = defaultDeviceLanguage;
+  runApp(MyApp());
+}
 
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+  @override
+  State<StatefulWidget> createState() => MainState();
+}
+class MainState extends State{
+    late Locale _locale;
+    Locale get locale => _locale;
+
+    final _supportedLocales = const [
+      Locale('es'),
+      Locale('en')
+    ];
+    @override
+    void initState(){
+      super.initState();
+
+      _locale = Locale(defaultLocale,defaultLanguage);
+    }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter4',
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+
+      ],
+      supportedLocales: _supportedLocales,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -55,10 +98,13 @@ class FirstRouteState extends State<FirstRoute> {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
+  
   final key = GlobalKey<FormState>();
   late String nombre;
   @override
   Widget build(BuildContext context) {
+    final text = AppLocalizations.of(context)!;
+    print(text.helloWorld);
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(

@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:flutter_gen/gen_l10n/app_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter4/routing/routes.dart';
 
@@ -17,6 +20,8 @@ class _SecondRouteState extends State<SecondRoute> {
  
   @override
   Widget build(BuildContext context) {
+    final text = AppLocalizations.of(context)!;
+    print(text.helloWorld);
     return Scaffold(
       appBar: AppBar(
         title: Text("Hola ${widget.usuario}"),
