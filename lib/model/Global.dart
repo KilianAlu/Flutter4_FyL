@@ -1,4 +1,7 @@
- import 'ciudad.dart';
+ import 'package:flutter4/model/Objeto.dart';
+
+import 'ciudad.dart';
+
 
 List<Ciudad> ciudades = [
     Ciudad(

@@ -1,11 +1,7 @@
-import 'dart:html';
-
 import 'package:flutter_gen/gen_l10n/app_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter4/routing/routes.dart';
 
-import 'CiudadDetalles.dart';
-import 'package:flutter4/model/ciudad.dart';
 
 import 'model/Global.dart';
 

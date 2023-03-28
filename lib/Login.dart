@@ -1,16 +1,9 @@
-import 'dart:html';
-
 import 'package:flutter_gen/gen_l10n/app_local.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter4/CiudadDetalles.dart';
-import 'package:flutter4/model/ciudad.dart';
 import 'package:flutter4/routing/appRoutes.dart';
 import 'package:flutter4/routing/routes.dart';
-import 'package:flutter4/test/testPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:intl/date_symbol_data_http_request.dart';
 import 'package:intl/intl.dart';
-import 'CiudadesLista.dart';
 import 'dart:ui' as ui;
 
 final defaultLocale = ui.window.locale.languageCode;
@@ -26,7 +19,7 @@ String get defaultDeviceLanguage {
 
 void main() {
   Intl.defaultLocale = defaultDeviceLanguage;
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -53,7 +46,7 @@ class MainState extends State{
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter4',
-      localizationsDelegates: const [
+       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
