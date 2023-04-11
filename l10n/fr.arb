@@ -2,4 +2,11 @@
     "@@locale":"fr",
     "helloWorld" : "Hola Mundo",
     "vAMOS" : "VAMOS",
+    "contrasena":"Contraseña",
+    "contrasenaNumerosLetras":"La contraseña debe tener numeros y letras",
+    "contrasenaEquivocada": "Contraseña equivocada",
+    "introduceContrasena":"Introduce una contraseña",
+    "introduceEmail":"Introduce un email",
+    "usuarioIncorrecto":"Usuario incorrecto",
+    "restaurarContrasena":"Restaurar Contraseña",
 }
