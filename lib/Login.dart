@@ -33,7 +33,8 @@ class MainState extends State{
 
     final _supportedLocales = const [
       Locale('es'),
-      Locale('en')
+      Locale('en'),
+      Locale('fr'),
     ];
     @override
     void initState(){

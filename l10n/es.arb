@@ -1,18 +1,13 @@
 {
     "@@locale":"es",
     "helloWorld" : "Hola Mundo",
-    "vAMOS" : "LETS GO",
-    "nintendo3ds" : "Esta es la Nintendo3ds",
-    "nintendoSwitch" : "Esta es la Nintendo Switch",
-    "mesa": "Mesa",
-    "mesaTexto" : "esto es una mesa le pones cosas encima",
-    "microondasTexto": "Sirve para calentar cosas",
-    "microondas" : "Microondas",
-    "vaso" : "Vaso",
-    "vasoTexto" : "Es un vaso",
-    "teclado" : "Teclado"
-    "tecladoTexto" : "Es un teclado qwerty de altisima calidad",
-    "raton":"Raton",
-    "ratonTexto":"Raton de ordenador",
-    ""
+    "vAMOS" : "VAMOS",
+    "contrasena":"Contraseña",
+    "contrasenaNumerosLetras":"La contraseña debe tener numeros y letras",
+    "contrasenaEquivocada": "Contraseña equivocada",
+    "introduceContrasena":"Introduce una contraseña",
+    "introduceEmail":"Introduce un email",
+    "usuarioIncorrecto":"Usuario incorrecto",
+    "restaurarContrasena":"Restaurar Contraseña",
+
 }
