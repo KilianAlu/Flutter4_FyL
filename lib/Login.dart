@@ -164,7 +164,7 @@ class FirstRouteState extends State<FirstRoute> {
                   child: const Text("Login"),
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Navigator.pushReplacementNamed(context, Routes.ciudades, arguments: nombre);
+                      Navigator.pushReplacementNamed(context, Routes.compras, arguments: nombre);
                     }
                   })
             ]),

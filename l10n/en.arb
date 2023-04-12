@@ -2,6 +2,14 @@
     "@@locale":"en",
     "helloWorld" : "Hello World",
     "vAMOS" : "VAMOS",
-    "monitor":"Monitor",
-    "monitorTexto":"1920 x 1080 monitor",
+    "contrasena":"Contraseña",
+    "contrasenaNumerosLetras":"La contraseña debe tener numeros y letras",
+    "contrasenaEquivocada": "Contraseña equivocada",
+    "introduceContrasena":"Introduce una contraseña",
+    "introduceEmail":"Introduce un email",
+    "usuarioIncorrecto":"Usuario incorrecto",
+    "restaurarContrasena":"Restaurar Contraseña",
+    "tienda":"tienda",
+    "ciudad":"ciudades",
+
 }

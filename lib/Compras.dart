@@ -19,7 +19,8 @@ class comprasState extends State<Compras>{
  @override
   Widget build(BuildContext context) {
     final text = AppLocalizations.of(context)!;
-       
+    print(Intl.defaultLocale);
+    List<Objeto> compras = objetos[Intl.defaultLocale];
     return Scaffold(
       appBar: AppBar(
         title: Text("COMPRAS"),
@@ -27,27 +28,27 @@ class comprasState extends State<Compras>{
       body: Center(
           child: InkWell(
               child: ListView.builder(
-                  itemCount: objetos.length,
+                  itemCount: compras.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Hero(
-                            tag: objetos[index].nombre,
+                            tag: compras[index].nombre,
                             child: Image.network(
-                              objetos[index].foto,
+                              compras[index].foto,
                               width: 150,
                             ),
                           ),
                           const SizedBox(width: 20),
                           Column(
-                            children: [Text(objetos[index].nombre)],
+                            children: [Text(compras[index].nombre)],
                           )
                         ],
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, Routes.ciudad,arguments: objetos[index]);
+                        Navigator.pushNamed(context, Routes.ciudad,arguments: compras[index]);
                       },
                     );
                   }))),

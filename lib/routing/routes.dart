@@ -7,4 +7,7 @@ class Routes{
   static const ciudades = '/ciudades';
   static const ciudad = '/ciudad';
   static const splash = '/splash';
+  static const compras = '/compras';
+  static const comprasDetalles = '/comprasDetalles';
+  static const home = '/home';
 }
