@@ -17,8 +17,8 @@ class _home extends State<Home> {
   Widget build(BuildContext context) {
     final text = AppLocalizations.of(context);
     return Scaffold(
-/*       appBar: AppBar(
-        title: Text("${text?.secondPage}"),
+      appBar: AppBar(
+        title: Text(""),
         automaticallyImplyLeading: false,
       ),
       body: Center(
@@ -26,18 +26,18 @@ class _home extends State<Home> {
         children: [
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, Routes.catalogo);
+              Navigator.pushNamed(context, Routes.ciudades);
             },
-            child: Text("${text?.catalogue}"),
+            child: Text("${text.ciudad}"),
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, Routes.secondRoute, arguments: email);
+              Navigator.pushNamed(context, Routes.compras);
             },
-            child: Text("${text?.countries}"),
+            child: Text("${text.tiendas}"),
           ),
         ],
-      )), */
+      )),
     );
   }
 }
