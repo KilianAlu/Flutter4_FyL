@@ -2,14 +2,13 @@
     "@@locale":"en",
     "helloWorld" : "Hello World",
     "vAMOS" : "VAMOS",
-    "contrasena":"Contraseña",
-    "contrasenaNumerosLetras":"La contraseña debe tener numeros y letras",
-    "contrasenaEquivocada": "Contraseña equivocada",
-    "introduceContrasena":"Introduce una contraseña",
-    "introduceEmail":"Introduce un email",
-    "usuarioIncorrecto":"Usuario incorrecto",
-    "restaurarContrasena":"Restaurar Contraseña",
-    "tienda":"tienda",
-    "ciudad":"ciudades",
-
+    "contrasena":"Password",
+    "contrasenaNumerosLetras":"Password must have numbers and letters",
+    "contrasenaEquivocada": "Wrong password",
+    "introduceContrasena":"Enter a password",
+    "introduceEmail":"Enter an email",
+    "usuarioIncorrecto":"Wrong user",
+    "restaurarContrasena":"Reset Password",
+    "tienda":"shop",
+    "ciudad":"towns"
 }

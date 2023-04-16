@@ -128,9 +128,9 @@ class FirstRouteState extends State<FirstRoute> {
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Introduce un email";
+                            return  text.introduceEmail;
                           } else if (value != "user") {
-                            return "Usuario incorrecto";
+                            return text.usuarioIncorrecto;
                           }
                           nombre = value;
                           return null;
@@ -149,11 +149,11 @@ class FirstRouteState extends State<FirstRoute> {
                         validator: (value) {
                           RegExp rex = RegExp(r'^(?=.*?[0-9])(?=.*[a-z])');
                           if (value == null || value.isEmpty) {
-                            return "Introduce una contraseña";
+                            return text.contrasena;
                           } else if (!rex.hasMatch(value)) {
-                            return "La contraseña debe tener numeros y letras";
+                            return text.contrasenaNumerosLetras;
                           } else if (value != "pass12345") {
-                            return "Contraseña equivocada";
+                            return text.contrasenaEquivocada;
                           }
                           return null;
                         },
@@ -164,7 +164,7 @@ class FirstRouteState extends State<FirstRoute> {
                   child: const Text("Login"),
                   onPressed: () {
                     if (key.currentState!.validate()) {
-                      Navigator.pushReplacementNamed(context, Routes.compras, arguments: nombre);
+                      Navigator.pushReplacementNamed(context, Routes.home, arguments: nombre);
                     }
                   })
             ]),

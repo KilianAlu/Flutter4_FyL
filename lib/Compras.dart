@@ -19,8 +19,17 @@ class comprasState extends State<Compras>{
  @override
   Widget build(BuildContext context) {
     final text = AppLocalizations.of(context)!;
-    print(Intl.defaultLocale);
-    List<Objeto> compras = objetos[Intl.defaultLocale];
+    String? idioma = Intl.defaultLocale;
+    switch (Intl.defaultLocale) {
+      case 'es_ES':
+        idioma = 'es';
+        break;
+      case 'en_US':
+      idioma = 'en';
+      break;
+      default:
+    }
+    List<Objeto> compras = objetos[idioma];
     return Scaffold(
       appBar: AppBar(
         title: Text("COMPRAS"),
@@ -43,12 +52,13 @@ class comprasState extends State<Compras>{
                           ),
                           const SizedBox(width: 20),
                           Column(
-                            children: [Text(compras[index].nombre)],
+                            children: [Text(compras[index].nombre), Text(compras[index].precio)],
+                            
                           )
                         ],
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, Routes.ciudad,arguments: compras[index]);
+                        Navigator.pushNamed(context, Routes.comprasDetalles,arguments: compras[index]);
                       },
                     );
                   }))),

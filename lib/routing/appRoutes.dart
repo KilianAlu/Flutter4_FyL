@@ -18,7 +18,7 @@ Map<String,Widget Function(BuildContext)> get appRoutes{
     Routes.login : (context) => const FirstRoute(title: "Login"),
     Routes.ciudades : (context) {
       String usu =ModalRoute.of(context)!.settings.arguments as String;
-      return SecondRoute(usuario: usu);
+      return SecondRoute();
     } ,
     Routes.ciudad : (context) {
       Ciudad pueblo =  ModalRoute.of(context)!.settings.arguments as Ciudad;

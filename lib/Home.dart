@@ -28,13 +28,13 @@ class _home extends State<Home> {
             onPressed: () {
               Navigator.pushNamed(context, Routes.ciudades);
             },
-            child: Text("${text.ciudad}"),
+            child: Text("${text?.ciudad}"),
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.pushNamed(context, Routes.compras);
             },
-            child: Text("${text.tiendas}"),
+            child: Text("${text?.tienda}"),
           ),
         ],
       )),

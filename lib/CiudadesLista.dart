@@ -6,8 +6,7 @@ import 'package:flutter4/routing/routes.dart';
 import 'model/Global.dart';
 
 class SecondRoute extends StatefulWidget {
-  const SecondRoute({super.key,required this.usuario});
-  final String usuario;
+  const SecondRoute({super.key});
   @override
   State<SecondRoute> createState() => _SecondRouteState();
 }
@@ -20,7 +19,7 @@ class _SecondRouteState extends State<SecondRoute> {
     print(text.helloWorld);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hola ${widget.usuario}"),
+        title: Text("Hola"),
       ),
       body: Center(
           child: InkWell(
